@@ -1,1 +1,1 @@
-export const cookieOptions = { signed: true, secure: false };
+export const cookieOptions = { signed: true, secure: true };
