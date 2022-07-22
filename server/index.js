@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
+app.get("/", () => {
+    console.log("Server is up and running!");
+});
+
 app.listen(PORT, async () => {
     await createDbConnection();
     console.log(`Listening on ${PORT}`);
