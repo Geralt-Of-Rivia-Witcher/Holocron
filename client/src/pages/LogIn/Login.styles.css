@@ -1,6 +1,6 @@
 .login-background-image {
     background-image: linear-gradient(to left, transparent, rgb(0, 0, 0)),
-        url("../../images/image5.jpg");
+        url("../../images/login-page.jpg");
     height: 100vh;
     background-position: bottom;
     background-repeat: no-repeat;
