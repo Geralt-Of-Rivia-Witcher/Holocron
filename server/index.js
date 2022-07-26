@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(routes);
 
 app.get("/", (req, res) => {
-    res.send("Server is up and running!");
+    res.send("Server is up and running!!");
 });
 
 app.listen(PORT, async () => {
