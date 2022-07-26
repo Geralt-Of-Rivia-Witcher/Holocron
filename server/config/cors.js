@@ -1,10 +1,5 @@
-var whitelist = [
-    "http://localhost:3000",
-    "https://holocron.siddhantkumarsingh.me",
-];
-
 export const corsOptions = {
-    origin: whitelist,
+    origin: "https://holocron.siddhantkumarsingh.me",
     credentials: true,
     exposedHeaders: ["set-cookie"],
 };
