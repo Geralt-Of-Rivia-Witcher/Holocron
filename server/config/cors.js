@@ -1,3 +1,21 @@
+const allowCors = (fn) => async (req, res) => {
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader(
+        "Access-Control-Allow-Origin",
+        "https://holocron.siddhantkumarsingh.me"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET,PATCH,DELETE,POST");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    );
+    if (req.method === "OPTIONS") {
+        res.status(200).end();
+        return;
+    }
+    return await fn(req, res);
+};
+
 var whitelist = [
     "http://localhost:3000",
     "https://holocron.siddhantkumarsingh.me",
@@ -13,6 +31,7 @@ export const corsOptions = {
         }
     },
     credentials: true,
-    preflightContinue: true,
     exposedHeaders: ["set-cookie"],
 };
+
+export default allowCors;

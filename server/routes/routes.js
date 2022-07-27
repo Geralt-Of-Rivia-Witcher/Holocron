@@ -10,7 +10,9 @@ import fetchCredentials from "../api/controllers/fetchCredentials.js";
 import deleteCredential from "../api/controllers/deleteCredential.js";
 import checkLoggedIn from "../api/controllers/checkLoggedIn.js";
 
-router.route("/signup").post(signup);
+import allowCors from "../config/cors.js";
+
+router.route("/signup").post(allowCors(signup));
 
 router.route("/check-logged-in").get(checkLoggedIn);
 
