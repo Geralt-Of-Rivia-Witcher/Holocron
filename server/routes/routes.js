@@ -12,7 +12,7 @@ import checkLoggedIn from "../api/controllers/checkLoggedIn.js";
 
 import allowCors from "../config/cors.js";
 
-router.route("/signup").post(allowCors(signup));
+router.route("/signup").post(signup);
 
 router.route("/check-logged-in").get(checkLoggedIn);
 
