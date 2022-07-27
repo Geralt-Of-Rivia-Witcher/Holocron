@@ -15,6 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
+app.options("*", cors());
+
 app.get("/", (req, res) => {
     res.send("Server is up and running!!");
 });
