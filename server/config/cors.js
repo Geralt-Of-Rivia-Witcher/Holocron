@@ -13,5 +13,6 @@ export const corsOptions = {
         }
     },
     credentials: true,
+    preflightContinue: true,
     exposedHeaders: ["set-cookie"],
 };
