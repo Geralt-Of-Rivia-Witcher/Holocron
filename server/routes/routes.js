@@ -14,16 +14,16 @@ import allowCors from "../config/cors.js";
 
 router.route("/signup").post(allowCors(signup));
 
-router.route("/check-logged-in").get(checkLoggedIn);
+router.route("/check-logged-in").get(allowCors(checkLoggedIn));
 
-router.route("/login").post(login);
+router.route("/login").post(allowCors(login));
 
 router.route("/logout").post(logout);
 
-router.route("/add-new-credential").post(storeNewCredential);
+router.route("/add-new-credential").post(allowCors(storeNewCredential));
 
-router.route("/fetch-credentials").get(fetchCredentials);
+router.route("/fetch-credentials").get(allowCors(fetchCredentials));
 
-router.route("/delete-credentials").delete(deleteCredential);
+router.route("/delete-credentials").delete(allowCors(deleteCredential));
 
 export default router;
