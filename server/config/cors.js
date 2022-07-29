@@ -14,7 +14,7 @@ const allowCors = (fn) => async (req, res) => {
     );
     console.log(req);
     if (req.method === "OPTIONS") {
-        res.status(200).end();
+        res.status(200).send("ok");
         return;
     }
     return await fn(req, res);
