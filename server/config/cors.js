@@ -10,9 +10,8 @@ const allowCors = (fn) => async (req, res) => {
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
     if (req.method === "OPTIONS") {
-        return res.status(200).json({
-            body: "OK",
-        });
+        res.sendStatus(200);
+        return;
     }
     return await fn(req, res);
 };
