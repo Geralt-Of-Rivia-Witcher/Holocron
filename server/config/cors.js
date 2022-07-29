@@ -9,6 +9,7 @@ const allowCors = (fn) => async (req, res) => {
         "Access-Control-Allow-Headers",
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
+    console.log(req);
     if (req.method === "OPTIONS") {
         res.sendStatus(200);
         return;
