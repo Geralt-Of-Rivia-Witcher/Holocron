@@ -1,0 +1,4 @@
+[build]
+ base = "server/"
+ publish = "server-output/"
+ command = "node server.js"
