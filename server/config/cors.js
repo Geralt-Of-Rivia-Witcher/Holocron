@@ -15,5 +15,3 @@ export const corsOptions = {
     credentials: true,
     exposedHeaders: ["set-cookie"],
 };
-
-export default allowCors;
