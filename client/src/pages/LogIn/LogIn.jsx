@@ -22,7 +22,8 @@ function SignUp() {
     useEffect(() => {
         axios
             .get(`${BACKEND_URL}/check-logged-in`, { withCredentials: true })
-            .then(() => {
+            .then((success) => {
+                dispatch(loginAction({ username: success.data.username }));
                 navigate("/credential");
             })
             .catch((error) => {});
