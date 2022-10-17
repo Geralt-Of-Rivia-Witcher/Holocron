@@ -5,7 +5,10 @@ const logout = (req, res) => {
 
     Session.findOneAndDelete({ sessionID: sessionID })
         .then(() => {
-            res.clearCookie("sessionID")
+            res.clearCookie("sessionID", {
+                domain: "holocron-api.siddhantkumarsingh.me",
+                path: "/",
+            })
                 .status(200)
                 .send({ message: "Logged out successfully" });
         })
