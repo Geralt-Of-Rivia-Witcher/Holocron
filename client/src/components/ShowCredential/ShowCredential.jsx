@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { toast } from "react-toastify";
 import axios from "axios";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 import { BACKEND_URL } from "../../constants/index.js";
 
@@ -21,6 +23,8 @@ const handleIconClick = async (event, textToCopy) => {
 };
 
 function ShowCredential(props) {
+    const [deleteButtonStatus, setDeleteButtonStatus] = useState(false);
+
     useEffect(() => {
         const handleClick = (event) => {
             if (
@@ -138,12 +142,29 @@ function ShowCredential(props) {
                         }}
                     />
                 </div>
-                <DeleteForeverIcon
-                    className="delete-credential-icon"
-                    onClick={() => {
-                        deleteCredential(props.fetchedCredentials._id);
-                    }}
-                />
+                {deleteButtonStatus ? (
+                    <div style={{ width: "50%" }}>
+                        <DoneAllIcon
+                            className="delete-button-yes"
+                            onClick={() => {
+                                deleteCredential(props.fetchedCredentials._id);
+                            }}
+                        />
+                        <CancelIcon
+                            className="delete-button-no"
+                            onClick={() => {
+                                setDeleteButtonStatus(false);
+                            }}
+                        />
+                    </div>
+                ) : (
+                    <DeleteForeverIcon
+                        className="delete-credential-icon"
+                        onClick={() => {
+                            setDeleteButtonStatus(true);
+                        }}
+                    />
+                )}
             </div>
             <div className="spacer"></div>
         </>
