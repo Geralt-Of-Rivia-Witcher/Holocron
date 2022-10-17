@@ -5,7 +5,9 @@ const logout = (req, res) => {
 
     Session.findOneAndDelete({ sessionID: sessionID })
         .then(() => {
-            res.status(200).send({ message: "Logged out successfully" });
+            res.clearCookie("sessionID")
+                .status(200)
+                .send({ message: "Logged out successfully" });
         })
         .catch((error) => {
             res.status(500).send({
